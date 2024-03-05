@@ -1,0 +1,22 @@
+#include <cs50.h>
+#include <stdio.h>
+
+int main(void)
+{
+    FILE *file = fopen("phonebook.csv", "a");
+
+    if (file == NULL)
+    {
+        printf("Error opening file!\n");
+        return 1;
+    }
+
+    char *name = get_string("Name: ");
+    char *number = get_string("Number: ");
+
+    fprintf(file, "%s, %s\n", name, number);
+
+    fclose(file);
+
+    return 0;
+}
